@@ -1,0 +1,6 @@
+@Rent2Deliver.API_HostAddress = http://localhost:5288
+
+GET {{Rent2Deliver.API_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

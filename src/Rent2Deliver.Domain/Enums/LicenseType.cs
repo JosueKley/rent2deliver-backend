@@ -2,5 +2,7 @@
 
 public enum LicenseType
 {
-
+    A,
+    B,
+    AB
 }

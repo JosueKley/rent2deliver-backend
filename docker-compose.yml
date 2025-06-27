@@ -2,15 +2,15 @@ version: '3.8'
 
 services:
   api:
-    build: 
-      context: ./src/Rent2Deliver.Api
-      dockerfile: Dockerfile
+    build:
+      context: .
+      dockerfile: Dockerfile       
     container_name: rent2deliver-api
     ports:
       - '5000:80'
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
-      - ConnectionStrings__Postgres=Host=postgres;Database=challenge;Username=user;Password=pass
+      - ConnectionStrings__Postgres=Host=db;Database=rent2deliver;Username=postgres;Password=postgres
       - RabbitMQ__Uri=amqp://guest:guest@rabbitmq:5672
     depends_on:
       - postgres
@@ -20,9 +20,9 @@ services:
     image: postgres:15
     container_name: rent2deliver-postgres
     environment:
-      POSTGRES_DB: challenge
-      POSTGRES_USER: user
-      POSTGRES_PASSWORD: pass
+      POSTGRES_DB: rent2deliver
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
     volumes:
       - pgdata:/var/lib/postgresql/data
     ports:
